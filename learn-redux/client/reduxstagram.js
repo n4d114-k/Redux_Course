@@ -4,6 +4,10 @@ import { render } from 'react-dom';
 
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
+
+import Raven from 'raven-js';
+import { sentry_url } from './data/config';
+
 import store, { history } from './store';
 
 import css from './styles/style.styl';
@@ -12,6 +16,9 @@ import css from './styles/style.styl';
 import App from './components/App';
 import Single from './components/Single';
 import PhotoGrid from './components/PhotoGrid';
+
+
+Raven.config(sentry_url).install();
 
 
 const router = (
